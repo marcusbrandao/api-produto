@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  selector:
+    app: nginx
+  ports:
+    - port: 80
+    #k3d cluster create --agents 3 --servers 3 -p "8080:30000@loadbalancer"
+      nodePort: 30000
+  type: NodePort
